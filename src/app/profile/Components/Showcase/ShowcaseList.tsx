@@ -4,7 +4,7 @@ import React, {SetStateAction, useEffect, useState} from "react";
 import {ShowcaseListItem} from "@/app/profile/Components/Showcase/ShowcaseListItem";
 import {User} from "@/interfaces/UserInterfaces";
 import {Artist, Datapoint, Genre, Song, Type} from "@/interfaces/DatabaseInterfaces";
-import {getLIName} from "@/analysis_functions/general";
+import {getLIName} from "@/functions/analysis_functions/general";
 
 function TermSelection(props: {
     terms: Array<string | null>,

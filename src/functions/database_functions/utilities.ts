@@ -1,6 +1,6 @@
-import {pb} from "@/database_functions/hooks";
+import {pb} from "@/functions/database_functions/hooks";
 import {RecordSubscription} from "pocketbase";
-import {hashString} from "@/utility_functions/utilities";
+import {hashString} from "@/functions/utility_functions/utilities";
 import {Artist, Song} from "@/interfaces/DatabaseInterfaces";
 import {User} from "@/interfaces/UserInterfaces";
 

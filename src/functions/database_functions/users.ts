@@ -1,10 +1,10 @@
 import {User} from "@/interfaces/UserInterfaces";
-import {hashString} from "@/utility_functions/utilities";
-import {disableAutoCancel, enableAutoCancel} from "@/database_functions/utilities";
-import {fetchPBData, fetchPBDataByID, fetchPBFirstData, fetchPBFullList} from "@/database_functions/fetch";
-import {fetchSpotify} from "@/utility_functions/fetch";
+import {hashString} from "@/functions/utility_functions/utilities";
+import {disableAutoCancel, enableAutoCancel} from "@/functions/database_functions/utilities";
+import {fetchPBData, fetchPBDataByID, fetchPBFirstData, fetchPBFullList} from "@/functions/database_functions/fetch";
+import {fetchSpotify} from "@/functions/utility_functions/fetch";
 import {Settings} from "http2";
-import {deletePBData} from "@/database_functions/push";
+import {deletePBData} from "@/functions/database_functions/push";
 
 /**
  * Returns whether a user exists in the database.

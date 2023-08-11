@@ -1,12 +1,12 @@
 import {Followers, Following, User} from "@/interfaces/UserInterfaces";
 import {Artist, Datapoint, Settings, Song} from "@/interfaces/DatabaseInterfaces";
-import {hashString} from "@/utility_functions/utilities";
-import {fetchPBData, fetchPBDataByID} from "@/database_functions/fetch";
-import {containsElement} from "@/analysis_functions/comparisons";
-import {retrieveAllDatapoints} from "@/database_functions/datapoints";
-import {updatePBData} from "@/database_functions/push";
-import {retrieveUser} from "@/database_functions/users";
-import {createEvent} from "@/database_functions/events";
+import {hashString} from "@/functions/utility_functions/utilities";
+import {fetchPBData, fetchPBDataByID} from "@/functions/database_functions/fetch";
+import {containsElement} from "@/functions/analysis_functions/comparisons";
+import {retrieveAllDatapoints} from "@/functions/database_functions/datapoints";
+import {updatePBData} from "@/functions/database_functions/push";
+import {retrieveUser} from "@/functions/database_functions/users";
+import {createEvent} from "@/functions/database_functions/events";
 
 export const followsUser = async function (primaryUserID: string, targetUserID: string) {
     // If both are the same we can simply return false as a user cannot follow themselves.

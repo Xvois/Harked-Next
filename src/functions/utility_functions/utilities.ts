@@ -1,8 +1,8 @@
 import {Album} from "@/interfaces/SpotifyInterfaces";
-import {formatAlbum} from "@/database_functions/format";
-import {fetchSpotify} from "@/utility_functions/fetch";
+import {formatAlbum} from "@/functions/database_functions/format";
+import {fetchSpotify} from "@/functions/utility_functions/fetch";
 import {Artist, DBRecord, Genre, Song} from "@/interfaces/DatabaseInterfaces";
-import {fetchPBDataByID} from "@/database_functions/fetch";
+import {fetchPBDataByID} from "@/functions/database_functions/fetch";
 
 export function hashString(inputString : string) {
     let hash = 0; // Use regular integer

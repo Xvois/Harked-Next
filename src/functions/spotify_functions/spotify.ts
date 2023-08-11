@@ -1,7 +1,7 @@
-import {formatAlbum, formatArtist, formatPlaylist, formatSong} from "@/database_functions/format";
+import {formatAlbum, formatArtist, formatPlaylist, formatSong} from "@/functions/database_functions/format";
 import {Artist, Song} from "@/interfaces/DatabaseInterfaces";
-import {chunks} from "@/utility_functions/utilities";
-import {fetchSpotify} from "@/utility_functions/fetch";
+import {chunks} from "@/functions/utility_functions/utilities";
+import {fetchSpotify} from "@/functions/utility_functions/fetch";
 import {Album, Playlist} from "@/interfaces/SpotifyInterfaces";
 
 /**

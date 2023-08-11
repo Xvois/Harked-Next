@@ -1,4 +1,4 @@
-import {pb} from "@/database_functions/hooks";
+import {pb} from "@/functions/database_functions/hooks";
 
 
 /**

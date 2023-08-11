@@ -1,6 +1,6 @@
 import {VariantElement} from "@/interfaces/GlobalInterfaces";
 import {Datapoint} from "@/interfaces/DatabaseInterfaces";
-import {getAverageAnalytics} from "@/analysis_functions/general";
+import {getAverageAnalytics} from "@/functions/analysis_functions/general";
 
 export const containsElement = function (e : VariantElement, dp : Datapoint, type : "artists" | "songs" | "genres") {
     let contains = false;

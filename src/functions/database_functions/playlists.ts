@@ -1,4 +1,4 @@
-import {fetchPBData} from "@/database_functions/fetch";
+import {fetchPBData} from "@/functions/database_functions/fetch";
 import {PlaylistMetadata} from "@/interfaces/DatabaseInterfaces";
 
 /**

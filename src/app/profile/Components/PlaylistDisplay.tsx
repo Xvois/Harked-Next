@@ -1,7 +1,7 @@
 "use client"
 import {useEffect, useState} from "react";
 import {Playlist} from "@/interfaces/SpotifyInterfaces";
-import {retrievePlaylistMetadata} from "@/database_functions/playlists";
+import {retrievePlaylistMetadata} from "@/functions/database_functions/playlists";
 import {PlaylistMetadata} from "@/interfaces/DatabaseInterfaces";
 
 export const PlaylistItemList = function(props: {playlists: Playlist[]}) {

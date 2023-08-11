@@ -1,7 +1,7 @@
 import {Analytics, Artist, Datapoint, Song} from "@/interfaces/DatabaseInterfaces";
 import {VariantElement} from "@/interfaces/GlobalInterfaces";
 import {Album, Playlist} from "@/interfaces/SpotifyInterfaces";
-import {translateAnalytics, translateAnalyticsLow} from "@/analysis_functions/constants";
+import {translateAnalytics, translateAnalyticsLow} from "@/functions/analysis_functions/constants";
 import {User} from "@/interfaces/UserInterfaces";
 import {JSX} from "react";
 

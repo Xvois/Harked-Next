@@ -2,10 +2,10 @@
 import React, {ReactElement, SetStateAction, useEffect, useRef, useState} from "react";
 import {Artist, Song} from "@/interfaces/DatabaseInterfaces";
 import {Album} from "@/interfaces/SpotifyInterfaces";
-import {retrieveSearchResults} from "@/spotify_functions/spotify";
-import {getLIDescription, getLIName} from "@/analysis_functions/general";
+import {retrieveSearchResults} from "@/functions/spotify_functions/spotify";
+import {getLIDescription, getLIName} from "@/functions/analysis_functions/general";
 import {StyledField, StyledRating} from "@/shared_components/styled_mui";
-import {getRefValueOrEmpty} from "@/utility_functions/utilities";
+import {getRefValueOrEmpty} from "@/functions/utility_functions/utilities";
 import {LoadingIndicator} from "@/shared_components/loading";
 
 export const SimpleModal = (props: {

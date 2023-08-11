@@ -1,7 +1,9 @@
 "use client" // TODO: FIGURE OUT A WAY TO MAKE THIS NOT CLIENT??
 
 import {useEffect, useState} from "react";
-import {retrieveDatapoint} from "@/database_functions/datapoints";
+import {retrieveDatapoint} from "@/functions/database_functions/datapoints";
+import {Followers, User} from "@/interfaces/UserInterfaces";
+import {Datapoint, Term} from "@/interfaces/DatabaseInterfaces";
 
 function ComparisonLink(props) {
     const {pageUser, loggedUserID, longTermDP, simple = false} = props;
@@ -194,7 +196,16 @@ function UserContainer(props) {
     )
 }
 
-export function TopContainer(props : {}) {
+export function TopContainer(props : {
+    pageUser: User,
+    followers: Followers,
+    isLoggedUserFollowing: boolean,
+    isOwnPage: boolean,
+    loggedUserID: string,
+    longTermDP: Datapoint,
+    terms: Array<Term | null>,
+
+}) {
     const {
         pageUser,
         followers,
@@ -203,16 +214,13 @@ export function TopContainer(props : {}) {
         loggedUserID,
         longTermDP,
         terms,
-        setTermIndex,
-        termIndex
     } = props;
 
     return (
         <div>
             <UserContainer user={pageUser} followers={followers}
                            isLoggedUserFollowing={isLoggedUserFollowing} isOwnPage={isOwnPage}
-                           loggedUserID={loggedUserID} longTermDP={longTermDP} terms={terms} setTermIndex={setTermIndex}
-                           termIndex={termIndex}/>
+                           loggedUserID={loggedUserID} longTermDP={longTermDP}/>
             <div style={{
                 display: 'flex',
                 flexDirection: 'row',

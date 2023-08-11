@@ -1,21 +1,31 @@
 import {useEffect, useState} from "react";
+import {createEvent} from "@/functions/database_functions/events";
+import {
+    deleteRecommendation,
+    modifyRecommendation,
+    submitRecommendation
+} from "@/functions/database_functions/recommendations";
+import {retrieveSongAnalytics} from "@/functions/spotify_functions/spotify";
+import {getItemType, getLIDescription, getLIName} from "@/functions/analysis_functions/general";
+import {SelectionModal} from "@/shared_components/modals";
+import {Artist, Recommendation, Song} from "@/interfaces/DatabaseInterfaces";
+import {Album} from "@/interfaces/SpotifyInterfaces";
 
 
 const RecommendationSelectionModal = (props) => {
     const {showModal, setShowModal, recommendations, setRecommendations, pageGlobalUserID, initialItem = null} = props;
 
-    const handleSubmit = async (selectedItem, type, description) => {
+    const handleSubmit = async (selectedItem: Song | Artist | Album, type: "songs" | "artists" | "albums", description: string) => {
 
-        let submissionItem = selectedItem;
-        if (type === 'songs') {
-            submissionItem.analytics = await retrieveSongAnalytics(submissionItem.song_id);
+        if ("analytics" in selectedItem) {
+            selectedItem.analytics = await retrieveSongAnalytics(selectedItem.song_id);
         }
-        await submitRecommendation(pageGlobalUserID, submissionItem, type, description).then(() => {
+        await submitRecommendation(pageGlobalUserID, selectedItem, type, description).then(() => {
             retrieveProfileRecommendations(pageGlobalUserID).then(res => setRecommendations(res));
         });
     }
 
-    const handleModify = async (selectedItem, type, description) => {
+    const handleModify = async (selectedItem: Song | Artist | Album, type: "songs" | "artists" | "albums", description: string) => {
         const existingRecIndex = recommendations.findIndex(r => r.item[`${type.slice(0, type.length - 1)}_id`] === selectedItem[`${type.slice(0, type.length - 1)}_id`]);
         const existingRec = recommendations[existingRecIndex];
         await modifyRecommendation(pageGlobalUserID, existingRec, type, description).then(() => {
@@ -35,7 +45,7 @@ const RecommendationSelectionModal = (props) => {
     )
 }
 
-export const ProfileRecommendations = function (props) {
+export const ProfileRecommendations = function (props: { pageGlobalUserID: string; isOwnPage: boolean; }) {
     const {pageGlobalUserID, isOwnPage} = props;
     // Only songs and artists at the moment
     const [recs, setRecs] = useState([]);
@@ -96,7 +106,7 @@ export const ProfileRecommendations = function (props) {
     )
 }
 
-const Recommendation = (props) => {
+const Recommendation = (props: { rec: Recommendation; type: "songs" | "artists" | "albums"; isOwnPage: boolean; handleDelete: Function; handleEdit: Function; }) => {
     const {rec, type, isOwnPage, handleDelete, handleEdit} = props;
     return (
         <div key={rec.id} style={{
@@ -133,9 +143,9 @@ const Recommendation = (props) => {
                 {rec.description.length > 0 && (
                     <p style={{marginBottom: 0}}>
                         <em>
-                            <span style={{color: 'var(--accent-colour)', margin: '0 2px'}}>"</span>
+                            <span style={{color: 'var(--accent-colour)', margin: '0 2px'}}>`&quot;`</span>
                             {rec.description}
-                            <span style={{color: 'var(--accent-colour)', margin: '0 2px'}}>"</span>
+                            <span style={{color: 'var(--accent-colour)', margin: '0 2px'}}>`&quot;`</span>
                         </em>
                     </p>
                 )}

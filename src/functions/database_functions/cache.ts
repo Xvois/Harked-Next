@@ -1,5 +1,5 @@
 import {Artist, Genre, Song} from "@/interfaces/DatabaseInterfaces";
-import {fetchPBFullList} from "@/database_functions/fetch";
+import {fetchPBFullList} from "@/functions/database_functions/fetch";
 
 class DBCache {
     songs: Song[] = [];

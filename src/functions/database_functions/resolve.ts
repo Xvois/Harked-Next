@@ -1,9 +1,9 @@
-import {hashString} from "@/utility_functions/utilities";
-import {postArtist, postGenre, postSong} from "@/database_functions/push";
-import DBCacheManager from "@/database_functions/cache";
+import {hashString} from "@/functions/utility_functions/utilities";
+import {postArtist, postGenre, postSong} from "@/functions/database_functions/push";
+import DBCacheManager from "@/functions/database_functions/cache";
 import {Artist, Genre, Song} from "@/interfaces/DatabaseInterfaces";
-import {fetchSpotify} from "@/utility_functions/fetch";
-import {formatArtist} from "@/database_functions/format";
+import {fetchSpotify} from "@/functions/utility_functions/fetch";
+import {formatArtist} from "@/functions/database_functions/format";
 
 export const artistsToRefIDs = async (artists: Artist[]) => {
     const databaseCache = await DBCacheManager.getInstance();

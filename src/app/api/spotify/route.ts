@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
 import {cookies} from "next/headers";
-import {devLog} from "@/utility_functions/utilities";
+import {devLog} from "@/functions/utility_functions/utilities";
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);

@@ -3,10 +3,10 @@
 import {useEffect, useState} from "react";
 import {Artist} from "@/interfaces/DatabaseInterfaces";
 import {Playlist} from "@/interfaces/SpotifyInterfaces";
-import {getAverageAnalytics, getLIName, getTopInterestingAnalytics} from "@/analysis_functions/general";
-import {translateAnalytics, translateAnalyticsLow} from "@/analysis_functions/constants";
-import {followingContentsSearch} from "@/database_functions/user_meta";
-import {getAlbumsWithTracks} from "@/spotify_functions/spotify";
+import {getAverageAnalytics, getLIName, getTopInterestingAnalytics} from "@/functions/analysis_functions/general";
+import {translateAnalytics, translateAnalyticsLow} from "@/functions/analysis_functions/constants";
+import {followingContentsSearch} from "@/functions/database_functions/user_meta";
+import {getAlbumsWithTracks} from "@/functions/spotify_functions/spotify";
 
 const ArtistAnalysis = (props : {
     user_id: string,

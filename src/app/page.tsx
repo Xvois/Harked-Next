@@ -4,7 +4,7 @@
  * The home component. This deals with logging in, out and
  * handelling a user declining the Spotify scopes.
  */
-import {isLoggedIn} from "@/utility_functions/utilities";
+import {isLoggedIn} from "@/functions/utility_functions/utilities";
 import {LoginButton, LogoutButton} from "@/shared_components/log_buttons";
 
 function Homepage() {

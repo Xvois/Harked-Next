@@ -1,15 +1,15 @@
-import {disableAutoCancel, enableAutoCancel} from "@/database_functions/utilities";
+import {disableAutoCancel, enableAutoCancel} from "@/functions/database_functions/utilities";
 import {Artist, Datapoint, Song, Term} from "@/interfaces/DatabaseInterfaces";
-import {formatArtist, formatDatapoint, formatSong} from "@/database_functions/format";
-import {retrieveLoggedUserID, retrieveUser} from "@/database_functions/users";
-import {isLoggedIn} from "@/utility_functions/utilities";
-import {fetchPBFirstData, fetchPBFullList} from "@/database_functions/fetch";
-import {fetchSpotify} from "@/utility_functions/fetch";
-import {batchAnalytics, batchArtists} from "@/spotify_functions/spotify";
+import {formatArtist, formatDatapoint, formatSong} from "@/functions/database_functions/format";
+import {retrieveLoggedUserID, retrieveUser} from "@/functions/database_functions/users";
+import {isLoggedIn} from "@/functions/utility_functions/utilities";
+import {fetchPBFirstData, fetchPBFullList} from "@/functions/database_functions/fetch";
+import {fetchSpotify} from "@/functions/utility_functions/fetch";
+import {batchAnalytics, batchArtists} from "@/functions/spotify_functions/spotify";
 import {User} from "@/interfaces/UserInterfaces";
-import {artistsToRefIDs, genresToRefIDs, songsToRefIDs} from "@/database_functions/resolve";
-import {putPBData} from "@/database_functions/push";
-import {calculateTopGenres} from "@/utility_functions/top_genres";
+import {artistsToRefIDs, genresToRefIDs, songsToRefIDs} from "@/functions/database_functions/resolve";
+import {putPBData} from "@/functions/database_functions/push";
+import {calculateTopGenres} from "@/functions/utility_functions/top_genres";
 
 
 const validDPExists = async (user_id: string, term: Term) => {

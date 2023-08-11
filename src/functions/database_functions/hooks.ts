@@ -1,5 +1,5 @@
 import PocketBase, {RecordSubscription} from "pocketbase";
-import {subscribe, unsubscribe} from "@/database_functions/utilities";
+import {subscribe, unsubscribe} from "@/functions/database_functions/utilities";
 
 export const pb = new PocketBase("https://harked.fly.dev/");
 

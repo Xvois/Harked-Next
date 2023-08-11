@@ -1,5 +1,6 @@
 import querystring from "querystring";
 import {CLIENT_ID, CLIENT_SECRET} from "@/app/api/constants";
+import {redirect} from "next/navigation";
 
 
 export async function GET(request: Request) {
@@ -26,5 +27,5 @@ export async function GET(request: Request) {
 
     const headers = new Headers({"Set-Cookie": `access-token=${access_cookie}`});
 
-    return new Response(JSON.stringify({ok: true, access_token, expires_in}), {headers});
+    return new Response(JSON.stringify({ok: true}), {headers});
 }

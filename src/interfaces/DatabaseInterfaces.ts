@@ -77,4 +77,14 @@ export interface PlaylistMetadata extends DBRecord {
     meta: Record<string, string>,
 }
 
+export interface Recommendation extends DBRecord {
+    item: { id: string, type: "songs" | "artists" | "albums" } | Artist | Song | Album,
+    description: string
+}
+
+export interface ProfileRecommendations extends DBRecord {
+    user: User,
+    recommendations: Array<Recommendation> | Array<string>
+}
+
 export type Type = "genres" | "artists" | "songs";

@@ -1,9 +1,9 @@
-import {pb} from "@/database_functions/hooks";
-import {devLog, hashString} from "@/utility_functions/utilities";
+import {pb} from "@/functions/database_functions/hooks";
+import {devLog, hashString} from "@/functions/utility_functions/utilities";
 import {User} from "@/interfaces/UserInterfaces";
-import DBCacheManager from "@/database_functions/cache";
-import {retrieveSongAnalytics} from "@/spotify_functions/spotify";
-import {artistsToRefIDs, genresToRefIDs, resolveNewArtists} from "@/database_functions/resolve";
+import DBCacheManager from "@/functions/database_functions/cache";
+import {retrieveSongAnalytics} from "@/functions/spotify_functions/spotify";
+import {artistsToRefIDs, genresToRefIDs, resolveNewArtists} from "@/functions/database_functions/resolve";
 import {Artist, Genre, Song} from "@/interfaces/DatabaseInterfaces";
 
 export const putPBData = async (collection: string, data: any) => {
