@@ -4,7 +4,7 @@ import {RecordSubscription} from "pocketbase";
 import {Subscription} from "@/functions/database_functions/hooks";
 
 /**
- * Runs the argument callback function as a side effect of a successful
+ * Runs the argument exchange function as a side effect of a successful
  * hydration by the argument user_id.
  * @param user_id
  * @param callback
@@ -18,7 +18,7 @@ export const subscribeForHydration = async (user_id: string, callback: Function)
         }
     }
 
-    // Subscribe to "datapoints" with the modified callback
+    // Subscribe to "datapoints" with the modified exchange
     const subscription = new Subscription("datapoints", "*", callbackWrapper, true);
     subscription.invoke();
 }

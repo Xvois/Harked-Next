@@ -29,5 +29,10 @@ export async function GET(request: Request) {
 
     const headers = new Headers({"Set-Cookie": combinedCookies});
 
-    return new Response(JSON.stringify({ok: true, access_token, expires_in}), {headers});
+    if (access_token) {
+        return new Response(JSON.stringify({ok: true, access_token, expires_in}), {headers});
+    } else {
+        return new Response(JSON.stringify({ok: false}));
+    }
+
 }
